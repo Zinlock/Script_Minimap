@@ -1,0 +1,132 @@
+//--- OBJECT WRITE BEGIN ---
+new GuiControl(MMGSettingsDlg) {
+   profile = "GuiDefaultProfile";
+   horizSizing = "right";
+   vertSizing = "bottom";
+   position = "0 0";
+   extent = "1024 768";
+   minExtent = "8 2";
+   enabled = "1";
+   visible = "1";
+   clipToParent = "1";
+
+   new GuiWindowCtrl(MMGSettingsWindow) {
+      profile = "GuiWindowProfile";
+      horizSizing = "center";
+      vertSizing = "center";
+      position = "392 302";
+      extent = "239 163";
+      minExtent = "8 2";
+      enabled = "1";
+      visible = "1";
+      clipToParent = "1";
+      command = "Canvas.popDialog(MMGSettingsDlg);";
+      accelerator = "escape";
+      text = "Minimap Gui Settings";
+      maxLength = "255";
+      resizeWidth = "0";
+      resizeHeight = "0";
+      canMove = "1";
+      canClose = "1";
+      canMinimize = "0";
+      canMaximize = "0";
+      minSize = "50 50";
+      closeCommand = "Canvas.popDialog(MMGSettingsDlg);";
+
+      new GuiCheckBoxCtrl(MMGSWorldIcons) {
+         profile = "GuiCheckBoxProfile";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         position = "9 61";
+         extent = "222 14";
+         minExtent = "8 2";
+         enabled = "1";
+         visible = "1";
+         clipToParent = "1";
+         text = "Display icons in world";
+         groupNum = "-1";
+         buttonType = "ToggleButton";
+      };
+      new GuiCheckBoxCtrl(MMGSWorldIconsTPV) {
+         profile = "GuiCheckBoxProfile";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         position = "9 81";
+         extent = "222 14";
+         minExtent = "8 2";
+         enabled = "1";
+         visible = "1";
+         clipToParent = "1";
+         text = "Display icons in third person in vehicles";
+         groupNum = "-1";
+         buttonType = "ToggleButton";
+      };
+      new GuiCheckBoxCtrl(MMGSWorldIconsFL) {
+         profile = "GuiCheckBoxProfile";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         position = "9 101";
+         extent = "222 14";
+         minExtent = "8 2";
+         enabled = "1";
+         visible = "1";
+         clipToParent = "1";
+         text = "Display icons while freelooking (jank)";
+         groupNum = "-1";
+         buttonType = "ToggleButton";
+      };
+      new GuiBitmapButtonCtrl() {
+         profile = "BlockButtonProfile";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         position = "45 127";
+         extent = "148 30";
+         minExtent = "8 2";
+         enabled = "1";
+         visible = "1";
+         clipToParent = "1";
+         command = "MMGSaveSettings();";
+         text = "Save";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         bitmap = "base/client/ui/button1";
+         lockAspectRatio = "0";
+         alignLeft = "0";
+         alignTop = "0";
+         overflowImage = "0";
+         mKeepCached = "0";
+         mColor = "255 255 255 255";
+      };
+      new GuiTextEditCtrl(MMGSRadarSize) {
+         profile = "GuiTextEditProfile";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         position = "10 36";
+         extent = "34 18";
+         minExtent = "8 2";
+         enabled = "1";
+         visible = "1";
+         clipToParent = "1";
+         text = "128";
+         maxLength = "3";
+         historySize = "0";
+         password = "0";
+         tabComplete = "0";
+         sinkAllKeyEvents = "0";
+      };
+      new GuiTextCtrl() {
+         profile = "GuiTextProfile";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         position = "50 36";
+         extent = "52 18";
+         minExtent = "8 2";
+         enabled = "1";
+         visible = "1";
+         clipToParent = "1";
+         text = "Radar size";
+         maxLength = "255";
+      };
+   };
+};
+//--- OBJECT WRITE END ---

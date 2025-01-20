@@ -1,0 +1,207 @@
+//--- OBJECT WRITE BEGIN ---
+new GuiControlProfile(GuiMLOutlineTextProfile : GuiMLTextProfile)
+{
+	fontOutlineColor = "0 0 0 255";
+	doFontOutline = true;
+};
+
+new GuiBitmapCtrl(MMGRadar) {
+	profile = "GuiDefaultProfile";
+	horizSizing = "left";
+	vertSizing = "bottom";
+	position = "301 23";
+	extent = "256 256";
+	minExtent = "8 2";
+	visible = "0";
+	bitmap = "./tex/bg_radar";
+	wrap = "0";
+	lockAspectRatio = "1";
+	alignLeft = "0";
+	overflowImage = "0";
+	keepCached = "0";
+};
+new GuiBitmapCtrl(MMGRadarContainer) {
+	profile = "GuiDefaultProfile";
+	horizSizing = "left";
+	vertSizing = "bottom";
+	position = "271 -7";
+	extent = "316 316";
+	minExtent = "8 2";
+	visible = "0";
+	bitmap = "base/data/shapes/blank";
+	wrap = "0";
+	lockAspectRatio = "1";
+	alignLeft = "0";
+	overflowImage = "0";
+	keepCached = "0";
+};
+new GuiBitmapCtrl(MMGRadarLarge) {
+	profile = "GuiDefaultProfile";
+	horizSizing = "width";
+	vertSizing = "height";
+	position = "120 100";
+	extent = "400 280";
+	minExtent = "8 2";
+	visible = "0";
+	bitmap = "base/data/shapes/white";
+	wrap = "0";
+	lockAspectRatio = "0";
+	alignLeft = "0";
+	overflowImage = "0";
+	keepCached = "0";
+
+	new GuiBitmapCtrl() {
+		profile = "GuiDefaultProfile";
+		horizSizing = "width";
+		vertSizing = "bottom";
+		position = "1 1";
+		extent = "398 1";
+		minExtent = "1 1";
+		visible = "1";
+		bitmap = "base/data/shapes/white";
+		wrap = "0";
+		lockAspectRatio = "0";
+		alignLeft = "0";
+		overflowImage = "0";
+		keepCached = "0";
+	};
+	new GuiBitmapCtrl() {
+		profile = "GuiDefaultProfile";
+		horizSizing = "right";
+		vertSizing = "height";
+		position = "1 1";
+		extent = "1 278";
+		minExtent = "1 1";
+		visible = "1";
+		bitmap = "base/data/shapes/white";
+		wrap = "0";
+		lockAspectRatio = "0";
+		alignLeft = "0";
+		overflowImage = "0";
+		keepCached = "0";
+	};
+	new GuiBitmapCtrl() {
+		profile = "GuiDefaultProfile";
+		horizSizing = "left";
+		vertSizing = "height";
+		position = "398 1";
+		extent = "1 278";
+		minExtent = "1 1";
+		visible = "1";
+		bitmap = "base/data/shapes/white";
+		wrap = "0";
+		lockAspectRatio = "0";
+		alignLeft = "0";
+		overflowImage = "0";
+		keepCached = "0";
+	};
+	new GuiBitmapCtrl() {
+		profile = "GuiDefaultProfile";
+		horizSizing = "width";
+		vertSizing = "top";
+		position = "1 278";
+		extent = "398 1";
+		minExtent = "1 1";
+		visible = "1";
+		bitmap = "base/data/shapes/white";
+		wrap = "0";
+		lockAspectRatio = "0";
+		alignLeft = "0";
+		overflowImage = "0";
+		keepCached = "0";
+	};
+	
+	new GuiBitmapCtrl(MMGRadarLargeContainer) {
+		profile = "GuiDefaultProfile";
+		horizSizing = "width";
+		vertSizing = "height";
+		position = "2 2";
+		extent = "396 276";
+		minExtent = "8 2";
+		visible = "1";
+		bitmap = "base/data/shapes/blank";
+		wrap = "0";
+		lockAspectRatio = "0";
+		alignLeft = "0";
+		overflowImage = "0";
+		keepCached = "0";
+	};
+
+	// new GuiMouseEventCtrl(MMGRadarLargeOverlay) {
+	// 	profile = "GuiDefaultProfile";
+	// 	horizSizing = "width";
+	// 	vertSizing = "height";
+	// 	position = "2 2";
+	// 	extent = "396 276";
+	// 	minExtent = "8 2";
+	// 	visible = "1";
+	// 	lockMouse = "0";
+	// };
+};
+new GuiMLTextCtrl(MMGText) {
+	profile = "GuiMLOutlineTextProfile";
+	horizSizing = "left";
+	vertSizing = "bottom";
+	position = "301 310";
+	extent = "256 14";
+	minExtent = "8 2";
+	visible = "0";
+	lineSpacing = "2";
+	allowColorChars = "1";
+	maxChars = "-1";
+	text = " ";
+	maxBitmapHeight = "-1";
+	selectable = "1";
+};
+new GuiBitmapCtrl(MMGRadarOverlayContainer) {
+	profile = "GuiDefaultProfile";
+	horizSizing = "width";
+	vertSizing = "height";
+	position = "0 0";
+	extent = "600 480";
+	minExtent = "8 2";
+	visible = "0";
+	bitmap = "base/data/shapes/blank";
+	wrap = "0";
+	lockAspectRatio = "1";
+	alignLeft = "0";
+	overflowImage = "0";
+	keepCached = "0";
+
+	new GuiBitmapButtonCtrl(MMGRadarLargeOverlay) {
+		profile = "GuiDefaultProfile";
+		horizSizing = "right";
+		vertSizing = "bottom";
+		position = "2 2";
+		extent = "396 276";
+		minExtent = "8 2";
+		visible = "1";
+		command = "MMGRadarClicked();";
+	};
+};
+new GuiBitmapCtrl(MMGWorldIconContainer) {
+	profile = "GuiDefaultProfile";
+	horizSizing = "width";
+	vertSizing = "height";
+	position = "0 0";
+	extent = "600 480";
+	minExtent = "8 2";
+	visible = "1";
+	bitmap = "base/data/shapes/blank";
+	wrap = "0";
+	lockAspectRatio = "0";
+	alignLeft = "0";
+	overflowImage = "0";
+	keepCached = "0";
+};
+//--- OBJECT WRITE END ---
+
+if(isObject(PlayGui))
+{
+	PlayGui.add(MMGRadar);
+	PlayGui.add(MMGRadarContainer);
+	PlayGui.add(MMGRadarLarge);
+	MMGRadarLarge.setColor("0 0 0 0.5");
+	PlayGui.add(MMGText);
+	PlayGui.add(MMGWorldIconContainer);
+}
