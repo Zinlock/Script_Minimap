@@ -211,6 +211,7 @@ function MMGTick()
 				%obj.MMGSAColor[%cl] = %obj.MMGSAColor;
 				%obj.MMGSADist[%cl] = %obj.MMGSADist;
 				%obj.MMGSABlink[%cl] = %obj.MMGSABlink;
+				%obj.MMGSAHide[%cl] = %obj.MMGSAHide;
 
 				if(%cl.MMGCanScope(%obj))
 					%obj.MMGScope(%cl, %obj.MMGSAIcon[%cl], %obj.MMGSAName[%cl], %obj.MMGSAColor[%cl], %obj.MMGSADist[%cl], %obj.MMGSABlink[%cl], %obj.MMGSAHide[%cl]);
