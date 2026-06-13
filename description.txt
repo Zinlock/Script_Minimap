@@ -1,0 +1,4 @@
+Title: Minimap
+Author: Oxy, Kokonut
+This is a simple minimap mod that lets you see nearby players and objectives.
+Includes a couple preferences and events for marking players, vehicles and bricks, as well as detecting when players click on the icons.

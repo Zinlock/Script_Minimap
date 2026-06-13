@@ -63,8 +63,10 @@ package MinimapServerPkg
 			%obj.schedule(0, MMGScopeAlwaysAll, "triangle");
 			%obj.schedule(0, MMGHideWorldIconAll, true);
 
-			if(%obj.client.hasMMG)
+			if(%obj.client.hasMMG && isFunction("Player","mountMXBot"))
 				%obj.minimapHead = %obj.mountMXBot(5, MinimapHeadAI);
+			
+			// what the fuck is this
 		}
 	}
 
@@ -154,7 +156,14 @@ function getHighestPos(%pos)
 {
 	%pos = setWord(%pos, 2, getTerrainHeight(%pos));
 
-	return posFromRaycast(containerRayCast(%pos, vectorAdd(%pos, "0 0 1000"), $TypeMasks::fxBrickObjectType | $TypeMasks::StaticShapeObjectType | $TypeMasks::InteriorObjectType | $TypeMasks::TerrainObjectType));
+	%result = containerRayCast(vectorAdd(%pos, "0 0 1000"), %pos, $TypeMasks::fxBrickObjectType | $TypeMasks::StaticShapeObjectType | $TypeMasks::InteriorObjectType | $TypeMasks::TerrainObjectType);
+	
+	if(%result)
+	{
+		return posFromRaycast(%result);
+	} else {
+		return %pos;
+	}
 }
 
 function MMGTick()

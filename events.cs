@@ -81,16 +81,57 @@ function WheeledVehicleData::MMGOnClick(%db, %obj, %cl, %pos)
 }
 
 registerOutputEvent("GameConnection", "SetMMGText", "string 200 200\tstring 200 200\tstring 200 200\tstring 200 200");
+$OutputDescription_["GameConnection", "SetMMGText"] = "[text] [text] [text] [text]" NL
+														"Displays text under the player's minimap (if they have the mod)" NL
+														"text (800): All 4 textboxes are put together.";
 
 registerOutputEvent("Player", "SetMMGIcon", "string 32 80\tpaintColor 0");
+$OutputDescription_["Player", "SetMMGIcon"] = "[string] [color]" NL
+												"Sets the player's minimap icon." NL
+												"string: Type mmgListIcons(); in console." NL
+												"color: Colorset color to use";
+
 registerOutputEvent("Bot", "SetMMGIcon", "string 32 80\tstring 32 80\tpaintColor 0");
+$OutputDescription_["Bot", "SetMMGIcon"] = "[string] [name] [color]" NL
+												"Sets the bot's minimap icon." NL
+												"string: Type mmgListIcons(); in console." NL
+												"name: Sets the icon's name." NL
+												"color: Colorset color to use";
+												
 registerOutputEvent("Vehicle", "SetMMGIcon", "string 32 80\tstring 32 80\tpaintColor 0");
+$OutputDescription_["Vehicle", "SetMMGIcon"] = "[string] [name] [color]" NL
+												"Sets the vehicle's minimap icon." NL
+												"string: Type mmgListIcons(); in console." NL
+												"name: Sets the icon's name." NL
+												"color: Colorset color to use";
+												
 registerOutputEvent("fxDtsBrick", "SetMMGIcon", "string 32 80\tstring 32 80\tpaintColor 0");
+$OutputDescription_["fxDtsBrick", "SetMMGIcon"] = "[string] [name] [color]" NL
+												"Sets the brick's minimap icon." NL
+												"string: Type mmgListIcons(); in console." NL
+												"name: Sets the icon's name." NL
+												"color: Colorset color to use";
 
 registerOutputEvent("Player", "BlinkMMGIcon", "float 0 5 0.1 1");
+$OutputDescription_["Player", "BlinkMMGIcon"] = "[slider]" NL
+												"Blinks the player's minimap icon." NL
+												"slider: Sets how long it takes to blink, or 0 to disable.";
+												
 registerOutputEvent("Bot", "BlinkMMGIcon", "float 0 5 0.1 1");
+$OutputDescription_["Bot", "BlinkMMGIcon"] = "[slider]" NL
+												"Blinks the bot's minimap icon." NL
+												"slider: Sets how long it takes to blink, or 0 to disable.";
+
 registerOutputEvent("Vehicle", "BlinkMMGIcon", "float 0 5 0.1 1");
+$OutputDescription_["Vehicle", "BlinkMMGIcon"] = "[slider]" NL
+												"Blinks the vehicle's minimap icon." NL
+												"slider: Sets how long it takes to blink, or 0 to disable.";
+
 registerOutputEvent("fxDtsBrick", "BlinkMMGIcon", "float 0 5 0.1 1");
+$OutputDescription_["fxDtsBrick", "BlinkMMGIcon"] = "[slider]" NL
+												"Blinks the bricks's minimap icon." NL
+												"slider: Sets how long it takes to blink, or 0 to disable.";
+
 
 function GameConnection::SetMMGText(%cl, %a, %b, %c, %d)
 {

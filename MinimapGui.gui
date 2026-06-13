@@ -13,12 +13,46 @@ new GuiBitmapCtrl(MMGRadar) {
 	extent = "256 256";
 	minExtent = "8 2";
 	visible = "0";
-	bitmap = "./tex/bg_radar";
+	bitmap = "Add-Ons/Script_Minimap/tex/bg_radar";
 	wrap = "0";
 	lockAspectRatio = "1";
 	alignLeft = "0";
 	overflowImage = "0";
 	keepCached = "0";
+	
+	new GuiBitmapCtrl(MMGRadarCompass) {
+		profile = "GuiDefaultProfile";
+		horizSizing = "left";
+		vertSizing = "bottom";
+		position = "0 0";
+		extent = "256 256";
+		minExtent = "8 2";
+		visible = "1";
+		bitmap = "Add-Ons/Script_Minimap/tex/compass";
+		wrap = "0";
+		lockAspectRatio = "1";
+		alignLeft = "0";
+		overflowImage = "0";
+		keepCached = "0";
+	};
+	
+	new GuiBitmapCtrl(MMGRadarCompassDot) {
+		profile = "GuiDefaultProfile";
+		horizSizing = "left";
+		vertSizing = "bottom";
+		position = "0 0";
+		extent = "16 16";
+		minExtent = "8 2";
+		visible = "1";
+		bitmap = "Add-Ons/Script_Minimap/tex/ico/ico_north";
+		wrap = "0";
+		mColor = "255 255 255 255";
+		lockAspectRatio = "1";
+		alignLeft = "0";
+		overflowImage = "0";
+		keepCached = "0";
+		clipToParent = false;
+	};
 };
 new GuiBitmapCtrl(MMGRadarContainer) {
 	profile = "GuiDefaultProfile";
@@ -50,7 +84,7 @@ new GuiBitmapCtrl(MMGRadarLarge) {
 	overflowImage = "0";
 	keepCached = "0";
 
-	new GuiBitmapCtrl() {
+	new GuiBitmapCtrl(MMGBorder1) {
 		profile = "GuiDefaultProfile";
 		horizSizing = "width";
 		vertSizing = "bottom";
@@ -65,7 +99,7 @@ new GuiBitmapCtrl(MMGRadarLarge) {
 		overflowImage = "0";
 		keepCached = "0";
 	};
-	new GuiBitmapCtrl() {
+	new GuiBitmapCtrl(MMGBorder2) {
 		profile = "GuiDefaultProfile";
 		horizSizing = "right";
 		vertSizing = "height";
@@ -80,7 +114,7 @@ new GuiBitmapCtrl(MMGRadarLarge) {
 		overflowImage = "0";
 		keepCached = "0";
 	};
-	new GuiBitmapCtrl() {
+	new GuiBitmapCtrl(MMGBorder3) {
 		profile = "GuiDefaultProfile";
 		horizSizing = "left";
 		vertSizing = "height";
@@ -95,7 +129,7 @@ new GuiBitmapCtrl(MMGRadarLarge) {
 		overflowImage = "0";
 		keepCached = "0";
 	};
-	new GuiBitmapCtrl() {
+	new GuiBitmapCtrl(MMGBorder4) {
 		profile = "GuiDefaultProfile";
 		horizSizing = "width";
 		vertSizing = "top";
@@ -153,38 +187,145 @@ new GuiMLTextCtrl(MMGText) {
 	maxBitmapHeight = "-1";
 	selectable = "1";
 };
-new GuiBitmapCtrl(MMGRadarOverlayContainer) {
-	profile = "GuiDefaultProfile";
-	horizSizing = "width";
-	vertSizing = "height";
+new GuiWindowCtrl(MMGRadarLargeWindow) //this has to be inside a window for right clicking buttons to work (What)
+{
+	profile = "MinimapWindowProfile";
+	horizSizing = "center";
+	vertSizing = "center";
 	position = "0 0";
 	extent = "600 480";
 	minExtent = "8 2";
-	visible = "0";
-	bitmap = "base/data/shapes/blank";
-	wrap = "0";
-	lockAspectRatio = "1";
-	alignLeft = "0";
-	overflowImage = "0";
-	keepCached = "0";
+	visible = 1;
+	text = "";
+	maxLength = 255;
+	resizeWidth = 0;
+	resizeHeight = 0;
+	canMove = 0;
+	canClose = 0;
+	canMinimize = 0;
+	canMaximize = 0;
+	minSize = "50 50";	
+		
+	// new GuiBitmapCtrl(MMGRadarOverlayContainer) {
+		// profile = "GuiDefaultProfile";
+		// horizSizing = "width";
+		// vertSizing = "height";
+		// position = "0 0";
+		// extent = "600 480";
+		// minExtent = "8 2";
+		// visible = "0";
+		// bitmap = "base/data/shapes/blank";
+		// wrap = "0";
+		// lockAspectRatio = "1";
+		// alignLeft = "0";
+		// overflowImage = "0";
+		// keepCached = "0";
 
-	new GuiBitmapButtonCtrl(MMGRadarLargeOverlay) {
-		profile = "GuiDefaultProfile";
-		horizSizing = "right";
-		vertSizing = "bottom";
-		position = "2 2";
-		extent = "396 276";
-		minExtent = "8 2";
-		visible = "1";
-		command = "MMGRadarClicked();";
-	};
+		new GuiMouseEventCtrl(MMGRadarLargeOverlay) {
+			profile = "GuiDefaultProfile";
+			horizSizing = "right";
+			vertSizing = "bottom";
+			position = "2 2";
+			extent = "396 276";
+			minExtent = "8 2";
+			visible = "1";
+			text = "";
+			bitmap = "Add-Ons/Script_Minimap/tex/btn_null";
+			//command = "MMGRadarClicked();";
+			//altcommand = "MMGRadarSpacebar();";
+		};
+		
+		new GuiBitmapButtonCtrl(MMGRadarCloseBtn) {
+			profile = "GuiDefaultProfile";
+			horizSizing = "right";
+			vertSizing = "bottom";
+			position = "348 0";
+			extent = "24 24";
+			minExtent = "8 2";
+			visible = "1";
+			text = "";
+			bitmap = "Add-Ons/Script_Minimap/tex/btn_mmgClose";
+			command = "MMGShowLargeMap(0);";
+			accelerator = "escape";
+		};
+		
+		new GuiBitmapButtonCtrl(MMGRadarOptBtn) {
+			profile = "GuiDefaultProfile";
+			horizSizing = "right";
+			vertSizing = "bottom";
+			position = "300 0";
+			extent = "24 24";
+			minExtent = "8 2";
+			visible = "1";
+			text = "";
+			bitmap = "Add-Ons/Script_Minimap/tex/btn_mmgOpt";
+			command = "MMGOpenSettings();";
+		};
+		
+		new GuiBitmapButtonCtrl(MMGRadarResetBtn) {
+			profile = "GuiDefaultProfile";
+			horizSizing = "right";
+			vertSizing = "bottom";
+			position = "252 0";
+			extent = "24 24";
+			minExtent = "8 2";
+			visible = "1";
+			text = "";
+			bitmap = "Add-Ons/Script_Minimap/tex/btn_mmgReset";
+			command = "MMGResetDrag();";
+		};
+		
+		new GuiBitmapButtonCtrl(MMGRadarZoomOutBtn) {
+			profile = "GuiDefaultProfile";
+			horizSizing = "right";
+			vertSizing = "bottom";
+			position = "348 352";
+			extent = "24 24";
+			minExtent = "8 2";
+			visible = "1";
+			text = "";
+			bitmap = "Add-Ons/Script_Minimap/tex/btn_mmgOut";
+			command = "MMGZoom(1);";
+			altcommand = "MMGZoom(0.5);";
+			accelerator = "";
+		};
+		
+		new GuiBitmapButtonCtrl(MMGRadarZoomInBtn) {
+			profile = "GuiDefaultProfile";
+			horizSizing = "right";
+			vertSizing = "bottom";
+			position = "348 304";
+			extent = "24 24";
+			minExtent = "8 2";
+			visible = "1";
+			text = "";
+			bitmap = "Add-Ons/Script_Minimap/tex/btn_mmgIn";
+			command = "MMGZoom(-1);";
+			altcommand = "MMGZoom(-0.5);";
+			accelerator = "";
+		};
+		
+		new GuiBitmapButtonCtrl(MMGRadarSpaceCatcher) {
+			profile = "BlockButtonProfile";
+			horizSizing = "right";
+			vertSizing = "bottom";
+			position = "-1000 -1000";
+			extent = "1 1";
+			minExtent = "1 1";
+			visible = "1";
+			command = "MMGRadarSpacebar();";
+			bitmap = "Add-Ons/Script_Minimap/tex/btn_null";
+			text = "";
+			accelerator = "space";
+		};
+	//};
 };
 new GuiBitmapCtrl(MMGWorldIconContainer) {
 	profile = "GuiDefaultProfile";
 	horizSizing = "width";
 	vertSizing = "height";
 	position = "0 0";
-	extent = "600 480";
+	extent = "640 480";
 	minExtent = "8 2";
 	visible = "1";
 	bitmap = "base/data/shapes/blank";

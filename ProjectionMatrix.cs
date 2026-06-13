@@ -49,6 +49,10 @@ function MMG_worldToScreen(%worldPosition)
 
 	return mFloor(%screenX + 0.5) SPC mFloor(%screenY + 0.5) SPC (vectorDot(vectorNormalize(vectorSub(%worldPosition, %eyeTransform)), %muzzleVector) > 0);
 }
+if(isBlocklandRebuilt())
+{
+	eval("function MMG_worldToScreen(%worldPosition) { return PlayGui.world2screen(%worldPosition) SPC 1; }");
+}
 
 // BY Xalos, from Client_RealisticSpace
 function MMG_getMyEyeTransform(%MV, %cameraPosition)
